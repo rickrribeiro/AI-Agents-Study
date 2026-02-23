@@ -1,0 +1,44 @@
+Agentic AI refers to artificial intelligence that can act independently and make decisions on its own, much like a person would. Imagine having a smart assistant in your kitchen that not only tells you how to cook a meal but also adapts its instructions based on what you have available. 
+
+Flipped Interaction Patterns: Ask AI to ask you questions so it can know better what to do
+
+The Agent loop (how we go from a conversation to an agent):
+prompt -> Response -> Action -> Get Feedback on Result -> continue loop? -> prompt again...
+
+Agents require two key capabilities:
+- Programmatic prompting - Automating the prompt-response cycle that humans do manually in a conversation. This forms the foundation of the Agent Loop we’ll explore.
+- Memory management - Controlling what information persists between iterations, like API calls and their results, to maintain context through the agent’s decision-making process.
+
+
+The messages parameter is a list of dictionaries containing role and content. The role attribute indicates who is “speaking” in the conversation. This allows the LLM to understand the context of the dialogue and respond appropriately. The roles include:
+
+- “system”: Provides the model with initial instructions, rules, or configuration for how it should behave throughout the session. This message is not part of the “conversation” but sets the ground rules or context (e.g., “You will respond in JSON.”).
+- “user”: Represents input from the user. This is where you provide your prompts, questions, or instructions.
+- “assistant”: Represents responses from the AI model. You can include this role to provide context for a conversation that has already started or to guide the model by showing sample responses. These messages are interpreted as what the “model” said in the past.
+
+
+When interacting with an LLM, the model does not inherently “remember” previous conversations or responses.
+- No Inherent Memory: The LLM has no knowledge of past interactions unless explicitly provided in the current prompt (via messages).
+- Provide Full Context: To simulate continuity in a conversation, include all relevant messages (both user and assistant responses) in the messages parameter.
+- Role of Assistant Messages: Adding previous responses as assistant messages allows the model to maintain a coherent conversation and build on earlier exchanges. For an agent, this will allow it to remember what actions, such as API calls, it took in the past.
+- Memory Management: We can control what the LLM remembers or does not remember by managing what messages go into the conversation. Causing the LLM to forget things can be a powerful tool in some circumstances, such as when we need to break a pattern of poor responses from an Agent.
+
+
+ways to handle ai/environment interface issues:
+- prompt engineering + parsing: ask to answer in a very specific format giving a template
+- llms that support function calling
+
+
+
+
+    Construct Prompt: Combine the agent’s memory, user input, and system rules into a single prompt. This ensures the LLM has all the context it needs to decide on the next action, maintaining continuity across iterations.
+
+    Generate Response: Send the constructed prompt to the LLM and retrieve a response. This response will guide the agent’s next step by providing instructions in a structured format.
+
+    Parse Response: Extract the intended action and its parameters from the LLM’s output. The response must adhere to a predefined structure (e.g., JSON format) to ensure it can be interpreted correctly.
+
+    Execute Action: Use the extracted action and its parameters to perform the requested task with the appropriate tool. This could involve listing files, reading content, or printing a message.
+
+    Convert Result to String: Format the result of the executed action into a string. This allows the agent to store the result in its memory and provide clear feedback to the user or itself.
+
+    Continue Loop?: Evaluate whether the loop should continue based on the current action and results. The loop may terminate if a “terminate” action is specified or if the agent has completed the task.
