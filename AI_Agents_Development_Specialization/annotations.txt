@@ -141,3 +141,41 @@ The AgentLanguage component is crucial because it:
 - Supports Evolution: As LLM capabilities change, we can adapt our communication approach without changing the agent’s core logic
 
 By separating the “how to communicate” from the “what to do,” we create agents that can evolve and improve their interaction with LLMs while maintaining their core functionality. This flexibility is essential as language model capabilities continue to advance and new communication patterns emerge.
+
+
+
+When building AI agents, one of the most challenging aspects is maintaining accurate documentation about the tools our agent can use. Every time we modify a tool’s parameters or behavior, we need to update its description and parameter schema. If these get out of sync, our agent might try to use tools incorrectly, leading to failures that can be hard to debug.
+We can solve this creating decorators
+
+Its a good practice tagging Tools for Organization
+
+1. Self-Documenting Tools
+Each tool now carries its own documentation through Python docstrings. The decorator automatically extracts this documentation and uses it as the tool’s description. This means:
+- Documentation lives with the code it describes
+- Changes to the function naturally lead to updates in documentation
+- We get better IDE integration with docstring hints
+
+2. Automatic Parameter Inference
+The decorator examines the function’s type hints and signature to automatically build the parameter schema. This means:
+- Parameter types stay in sync automatically
+- Required parameters are detected from the function signature
+- We don’t need to manually maintain a separate schema
+
+3. Logical Organization Through Tags
+This tagging system makes it easy to:
+- Group related tools together
+- Filter tools when creating agents
+- Understand a tool’s purpose at a glance
+
+4. Simplified Agent Creation
+We no longer need to manually register actions. Instead, we just specify which tags we want, and the ActionRegistry automatically includes the appropriate tools.
+
+5. Easier Maintenance
+When we need to modify our agent’s capabilities, we can:
+- Add new tools by simply decorating functions
+- Modify existing tools without touching registration code
+- Change tool organization by adjusting tags
+- Remove tools by removing the decorator or changing tags
+
+
+its a good practice crete two functions to register tools when creating the tool registry. Store the terminate tool but not register initially. It is registered later through register_terminate_tool() to control when the agent is allowed to end execution, preventing premature termination.

@@ -3,6 +3,7 @@ import time
 import json
 import traceback
 from typing import Any, Callable, Dict, List
+from decorators import tools
 
 @dataclass
 class Prompt:
@@ -48,6 +49,46 @@ class ActionRegistry:
         """Get all registered actions"""
         return list(self.actions.values())
     
+class PythonActionRegistry(ActionRegistry):
+    def __init__(self, tags: List[str] = None, tool_names: List[str] = None):
+        super().__init__()
+
+        self.terminate_tool = None
+
+        for tool_name, tool_desc in tools.items():
+            if tool_name == "terminate":
+                self.terminate_tool = tool_desc
+
+            if tool_names and tool_name not in tool_names:
+                continue
+
+            tool_tags = tool_desc.get("tags", [])
+            if tags and not any(tag in tool_tags for tag in tags):
+                continue
+
+            self.register(Action(
+                name=tool_name,
+                function=tool_desc["function"],
+                description=tool_desc["description"],
+                parameters=tool_desc.get("parameters", {}),
+                terminal=tool_desc.get("terminal", False)
+            ))
+
+    def register_terminate_tool(self):
+        # The terminate tool is stored but not registered initially.
+        # It is registered later through register_terminate_tool() to control when
+        # the agent is allowed to end execution, preventing premature termination.
+        if self.terminate_tool:
+            self.register(Action(
+                name="terminate",
+                function=self.terminate_tool["function"],
+                description=self.terminate_tool["description"],
+                parameters=self.terminate_tool.get("parameters", {}),
+                terminal=self.terminate_tool.get("terminal", False)
+            ))
+        else:
+            raise Exception("Terminate tool not found in tool registry")
+    
 
 class Memory:
     def __init__(self):
@@ -60,6 +101,13 @@ class Memory:
     def get_memories(self, limit: int = None) -> List[Dict]:
         """Get formatted conversation history for prompt"""
         return self.items[:limit]
+
+    def copy_without_system_memories(self):
+        """Return a copy of the memory without system memories"""
+        filtered_items = [m for m in self.items if m["type"] != "system"]
+        memory = Memory()
+        memory.items = filtered_items
+        return memory
     
 class Environment:
     def execute_action(self, action: Action, args: dict) -> dict:
@@ -186,7 +234,7 @@ class AgentFunctionCallingActionLanguage(AgentLanguage):
         except Exception as e:
             return {
                 "tool": "terminate",
-                "args": {"file_name": "errors.txt", "message": response}
+                "args": {"file_name": "errors_module_4.txt", "message": response}
             }
     
 class Agent:

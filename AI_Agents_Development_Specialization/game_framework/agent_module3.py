@@ -104,11 +104,9 @@ def main():
         environment=environment
     )
 
-    # Run the agent
     user_input = "Write a README for this project."
     final_memory = file_explorer_agent.run(user_input)
 
-    # Print the final conversation if desired
     for item in final_memory.get_memories():
         print(f"\n{item['type'].upper()}: {item['content']}")
 
