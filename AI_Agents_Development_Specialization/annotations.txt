@@ -29,16 +29,115 @@ ways to handle ai/environment interface issues:
 - llms that support function calling
 
 
+Construct Prompt: Combine the agent’s memory, user input, and system rules into a single prompt. This ensures the LLM has all the context it needs to decide on the next action, maintaining continuity across iterations.
+
+Generate Response: Send the constructed prompt to the LLM and retrieve a response. This response will guide the agent’s next step by providing instructions in a structured format.
+
+Parse Response: Extract the intended action and its parameters from the LLM’s output. The response must adhere to a predefined structure (e.g., JSON format) to ensure it can be interpreted correctly.
+
+Execute Action: Use the extracted action and its parameters to perform the requested task with the appropriate tool. This could involve listing files, reading content, or printing a message.
+
+Convert Result to String: Format the result of the executed action into a string. This allows the agent to store the result in its memory and provide clear feedback to the user or itself.
+
+Continue Loop?: Evaluate whether the loop should continue based on the current action and results. The loop may terminate if a “terminate” action is specified or if the agent has completed the task.
 
 
-    Construct Prompt: Combine the agent’s memory, user input, and system rules into a single prompt. This ensures the LLM has all the context it needs to decide on the next action, maintaining continuity across iterations.
+GAIL (Goals, Actions, Information, Language)
 
-    Generate Response: Send the constructed prompt to the LLM and retrieve a response. This response will guide the agent’s next step by providing instructions in a structured format.
+Objectives and Instructions
+- Clearly define what the agent should do and how they should behave.
+- Include guidelines and rules that the agent must follow while performing tasks.
 
-    Parse Response: Extract the intended action and its parameters from the LLM’s output. The response must adhere to a predefined structure (e.g., JSON format) to ensure it can be interpreted correctly.
+Actions and Processes
+- Specify the actions the agent can perform, such as sending emails or accessing information.
+- Establish a process the agent must follow to avoid errors, such as verifying that an expense has already been recorded before entering it again.
 
-    Execute Action: Use the extracted action and its parameters to perform the requested task with the appropriate tool. This could involve listing files, reading content, or printing a message.
+Information 
+- Provide the agent with the necessary information to complete tasks, including feedback and relevant documents.
 
-    Convert Result to String: Format the result of the executed action into a string. This allows the agent to store the result in its memory and provide clear feedback to the user or itself.
+Language
+-Define how the agent should communicate, including the format of responses and the language to be used.
 
-    Continue Loop?: Evaluate whether the loop should continue based on the current action and results. The loop may terminate if a “terminate” action is specified or if the agent has completed the task.
+
+Tools and Actions:
+Agents need defined tools to perform tasks, such as cooking, where they are limited to specific utensils.
+
+
+It is important to restrict the agent's options so that it does not propose unrealistic solutions, such as using equipment that is not available.
+The agent must solve problems within the limits of the tools and actions assigned to it.
+When interacting with rigid systems, such as a CRM, the agent must have its actions clearly defined, since these systems have a limited number of operations that can be performed.
+
+Tools descriptions and naming:
+Describing tools accurately is crucial for agentic AI to understand their capabilities.
+Example: Tools on an alien spaceship are given descriptive names and functions to aid the AI in assisting with an escape.
+Tool names should be intuitive and descriptive to enhance understanding.
+Poorly named tools can lead to confusion and ineffective actions by the AI.
+Providing context about how tools should be used is essential for successful interactions.
+The order and language used when presenting tools can significantly impact the AI's performance.
+
+
+Tools results and agent feedback:
+
+It needs to know the results of its actions to learn and make better decisions. For example, if the AI tells you to increase the microwave time, you would respond with how much time was added. This way, the AI can adapt and figure out the next steps, just like your friend would learn from your feedback. Giving clear and helpful feedback is crucial for the AI to succeed!
+Its important to specify all error codes and actions after errors
+
+
+GAME framework: The GAME framework provides a structured way to design AI agents, ensuring modularity and adaptability. It breaks agent design into four essential components:
+G - Goals / Instructions: What the agent is trying to accomplish and its instructions on how to try to achieve its goals.
+A - Actions: The tools the agent can use to achieve its goals.
+M - Memory: How the agent retains information across interactions, which determines what information it will have available in each iteration of the agent loop.
+E - Environment: The agent’s interface to the external world where it executes actions and gets feedback on the results of those actions.
+
+Motivating Example: The Proactive Coder
+To illustrate how the GAME framework applies in practice, consider an AI agent designed to proactively enhance a codebase. This Proactive Coder agent will scan a repository, analyze patterns in the code, and propose potential new features that it could implement with a small number of changes. If the user approves a feature, the agent will generate the initial implementation and suggest refinements.
+
+Using the GAME framework, we break down the agent design:
+
+Goals:
+
+- Goals (What to achieve):
+Identify potential enhancements
+Make sure that the enhancements are helpful and relevant
+Make sure that the enhancements are small and self-contained so that they can be implemented by the agent with minimal risk
+Ensure that the changes do not break existing interfaces
+Ensure that the agent only implements features that the user agrees to
+- Instructions (How to achieve it):
+Pick a random file in the code base and read through it
+Read some related files to the original file
+Read at most 5 files
+Propose three feature ideas that are implementable in 2-3 functions and require minimal editing of the existing code
+Ask the user to select which feature to implement
+List the files that will need to be edited and provide a list of proposed changes for each
+Go file by file implementing the changes until they are all edited
+
+Actions:
+List project files
+Read project file
+Ask user to select a feature
+Edit project file
+
+Memory:
+We will use a simple conversational memory and store the complete contents of files in the conversation for reference
+
+Environment:
+We will provide simple implementations of the actions in Python to run locally, but could later change to an implementation that works in GitHub Actions.
+
+
+
+The Role of AgentLanguage
+This component serves as the translator between our structured agent components and the language model’s input/output format. 
+The AgentLanguage component has two primary responsibilities:
+- Prompt Construction: Transforming our GAME components into a format the LLM can understand
+- Response Parsing: Interpreting the LLM’s response to determine what action the agent should take
+
+The ability to swap agent languages gives us remarkable flexibility in how our agent communicates. Consider these scenarios:
+# Create an agent that uses natural language for simple tasks
+# Create an agent that uses function calling for complex tasks
+
+The AgentLanguage component is crucial because it:
+- Centralizes Communication Logic: All prompt construction and response parsing is in one place
+- Enables Experimentation: We can try different prompt strategies by creating new language implementations
+- Improves Reliability: Structured response formats and error handling make the agent more robust
+- Supports Evolution: As LLM capabilities change, we can adapt our communication approach without changing the agent’s core logic
+
+By separating the “how to communicate” from the “what to do,” we create agents that can evolve and improve their interaction with LLMs while maintaining their core functionality. This flexibility is essential as language model capabilities continue to advance and new communication patterns emerge.
