@@ -1,0 +1,223 @@
+# CLAUDE.md
+
+## Project Overview
+This project is a **personal expense tracker** designed to help users record, categorize, and analyze their spending.
+
+The primary goal of the codebase is to provide a **simple, fast, and reliable way to track personal finances** without unnecessary complexity. The system should prioritize ease of use and clarity of financial information.
+
+Typical use cases include:
+- Logging daily expenses
+- Categorizing transactions
+- Viewing spending summaries
+- Monitoring monthly budgets
+- Exporting or analyzing historical expense data
+
+The intended users are **individuals who want a lightweight personal finance tool**, not a full accounting system.
+
+---
+
+## Tech Stack
+- **Language(s):** TypeScript
+- **Frameworks / Libraries:** Next.js, React
+- **Runtime / Platform:** Node.js
+- **Database / Storage:** SQLite (via Prisma ORM)
+- **Tooling (build, lint, test, CI):**
+  - ESLint
+  - Prettier
+  - Vitest
+  - GitHub Actions
+
+---
+
+## Project Structure
+
+High-level repository layout:
+
+- `/app` – Next.js application routes and pages
+- `/components` – Reusable UI components
+- `/features` – Domain-specific modules (expenses, categories, reports)
+- `/lib` – Shared utilities, helpers, and configuration
+- `/db` – Database schema and Prisma configuration
+- `/services` – Business logic and data access layer
+- `/tests` – Unit and integration tests
+- `/docs` – Project documentation
+- `/scripts` – Automation or maintenance scripts
+
+Domain-driven structure should be preferred when possible.
+
+---
+
+## Coding Standards & Conventions
+
+Claude should follow these rules when writing or modifying code:
+
+**General Style**
+- Prefer **simple and readable code** over clever or highly abstract solutions.
+- Favor **small, composable functions**.
+- Avoid premature optimization.
+
+**Architecture**
+- Separate concerns clearly:
+  - UI → `/components`
+  - Business logic → `/services`
+  - Data access → `/db` or repository layer
+- Avoid tightly coupling UI and data logic.
+
+**Naming Conventions**
+- Variables: `camelCase`
+- Functions: `camelCase`
+- React components: `PascalCase`
+- Files: `kebab-case`
+- Constants: `UPPER_SNAKE_CASE`
+
+**Error Handling**
+- Fail fast when invalid data is detected.
+- Use typed error objects where appropriate.
+- Avoid silent failures.
+
+**Formatting**
+- Follow ESLint + Prettier rules.
+- Keep functions under ~50 lines when possible.
+
+**Patterns to Prefer**
+- Composition over inheritance
+- Clear domain models
+- Explicit typing
+
+**Patterns to Avoid**
+- Global mutable state
+- Overly complex abstractions
+- Business logic inside UI components
+
+---
+
+## Testing Philosophy
+
+The project uses the following types of tests:
+
+- **Unit tests** for business logic and utilities
+- **Integration tests** for API routes and database interactions
+
+Testing framework:
+- **Vitest**
+
+Guidelines:
+- All business logic in `/services` should have unit tests.
+- Critical workflows (creating expenses, updating budgets, generating reports) should have integration tests.
+- UI components only require tests when they contain logic.
+
+Claude should **not skip tests** unless explicitly instructed.
+
+---
+
+## Performance, Security & Reliability
+
+Important non-functional requirements:
+
+**Performance**
+- Expense creation and listing should feel instantaneous.
+- Queries should be optimized for common views (monthly summaries, category totals).
+
+**Security**
+- Validate all input data.
+- Prevent injection vulnerabilities in database queries.
+- Sanitize user inputs.
+
+**Data Validation**
+- Expense fields must include:
+  - amount
+  - category
+  - date
+- Amounts must be positive numbers.
+
+**Reliability**
+- Database operations should be safe and transactional when necessary.
+- Avoid data corruption when editing or deleting expenses.
+
+**Observability**
+- Important operations should log errors and warnings.
+- Logs should help diagnose failures without exposing sensitive data.
+
+---
+
+## How Claude Should Help
+
+Claude Code should:
+
+- Act as a **senior software engineer**
+- Prefer **minimal, incremental improvements**
+- Suggest **clean architecture and maintainable solutions**
+- Ask clarifying questions if requirements are ambiguous
+- Identify edge cases in financial calculations
+- Flag potential data integrity issues
+- Explain reasoning behind non-obvious decisions
+
+---
+
+## How Claude Should NOT Help
+
+Claude should avoid:
+
+- Introducing unnecessary frameworks
+- Over-engineering simple features
+- Rewriting large portions of the codebase without clear benefit
+- Changing public APIs without explicit request
+- Adding features not related to expense tracking
+
+---
+
+## Common Workflows
+
+Typical tasks Claude will assist with:
+
+- Implementing expense CRUD functionality
+- Adding new expense categories
+- Creating summary reports (monthly, category breakdown)
+- Refactoring business logic
+- Writing tests
+- Explaining existing code
+- Improving performance of queries
+- Generating documentation
+
+Preferred workflow:
+1. Understand the relevant feature module
+2. Propose minimal change
+3. Implement
+4. Add tests
+
+---
+
+## Context Sharing Guidelines
+
+When context is large:
+
+- Provide the **specific files related to the feature**
+- Summarize large directories
+- Share relevant schema definitions
+- Ask Claude to confirm understanding before major refactors
+
+---
+
+## Notes for Future Contributors
+
+Important considerations:
+
+- This project intentionally avoids becoming a **full accounting system**.
+- Simplicity and usability should always take priority over adding complex financial features.
+- Budgeting and analytics features may be expanded in the future.
+- Maintain a clear domain boundary between:
+  - expenses
+  - categories
+  - reports
+
+Common pitfalls:
+- Mixing UI logic with financial calculations
+- Forgetting validation for amounts and dates
+- Writing queries that do not scale with historical data
+
+---
+
+## Final Instruction
+
+If there is ever a conflict between being **fast** and being **correct**,  
+**prioritize correctness, clarity, and maintainability.**

@@ -1,0 +1,104 @@
+######### VERSION 1 ########
+I want to add data export functionality to my expense tracker. For this first version, implement a SIMPLE approach.
+
+VERSION CONTROL:
+- Before you start, create a new branch called "feature-data-export-v1"
+- Make all your changes in this branch
+- Commit your changes when complete
+
+VERSION 1 REQUIREMENTS:
+- Add an "Export Data" button to the main dashboard
+- When clicked, export all expenses as a CSV file
+- Include columns: Date, Category, Amount, Description
+- Use a simple, straightforward implementation
+- Keep the UI minimal - just a button that triggers the download
+
+IMPLEMENTATION APPROACH:
+Focus on simplicity and getting it working quickly. Don't overthink the user experience - just make it functional. Use standard browser APIs for file download.
+
+PROCESS:
+1. Create and checkout the new branch "feature-data-export-v1"
+2. Implement the CSV export functionality
+3. Add the export button to the dashboard
+4. Test that it works correctly
+5. Commit your changes with a descriptive message
+
+Remember: This is Version 1 of 3 - keep it simple and functional.
+
+
+############## VERSION 2 ###################
+Excellent work on Version 1! Now I want you to implement the SAME data export feature in a completely different way.
+
+VERSION CONTROL:
+- Switch back to the original branch (before any export functionality)
+- Create a new branch called "feature-data-export-v2"
+- This should be a completely fresh implementation
+
+VERSION 2 REQUIREMENTS:
+Implement an ADVANCED export system with these features:
+- Export modal/dialog with multiple options
+- Multiple export formats: CSV, JSON, and PDF
+- Date range filtering for exports (start date, end date)
+- Category filtering for exports (select specific categories)
+- Preview of data before export (show table of what will be exported)
+- Custom filename input field
+- Export summary showing how many records will be exported
+- Loading states during export process
+
+IMPLEMENTATION APPROACH:
+This version should feel like a professional business application export feature. Think about what a power user would want - lots of control and options. Use a modal or drawer interface, not just a simple button.
+
+Make this implementation completely different from Version 1:
+- Different UI components and patterns
+- Different user experience flow
+- More sophisticated code architecture
+- Professional polish and attention to detail
+
+PROCESS:
+1. Switch back to original branch
+2. Create and checkout: git checkout -b feature-data-export-v2
+3. Implement the advanced export system
+4. Test all the functionality thoroughly
+5. Commit your changes
+
+Show me what's possible with a more sophisticated approach. Be creative!
+
+
+########## VERSION 3 #########
+Great work on Version 2! Now let's try a third completely different approach to the same export feature.
+
+VERSION CONTROL:
+- Switch back to the original branch (clean state, no export features)
+- Create branch "feature-data-export-v3"
+
+VERSION 3 REQUIREMENTS:
+Implement a CLOUD-INTEGRATED export system with these features:
+- Email export functionality (simulated - show UI flow)
+- Google Sheets integration mockup (show what the flow would look like)
+- Automatic backup scheduling options (UI for setting up recurring exports)
+- Export history tracking (show previous exports with timestamps)
+- Sharing capabilities - generate shareable links or QR codes
+- Export templates (different formats for different purposes: "Tax Report", "Monthly Summary", "Category Analysis")
+- Integration mockups with popular tools (Dropbox, OneDrive, etc.)
+- Cloud storage options and sync status indicators
+
+IMPLEMENTATION APPROACH:
+Think like a modern SaaS application - focus on connectivity, sharing, and integration with other services. Even if we're simulating some integrations, make the UI and user flow feel like a real cloud service.
+
+This should feel completely different from both Version 1 (simple) and Version 2 (advanced local):
+- Modern cloud service aesthetic
+- Focus on sharing and collaboration
+- Integration-first mindset
+- Background processing concepts
+- Service connectivity themes
+
+Be creative and surprise me with innovative features around data export, sharing, and cloud integration that I might not have thought of!
+
+PROCESS:
+1. Switch to the original branch
+2. Create and checkout: git checkout -b feature-data-export-v3
+3. Implement the cloud-integrated export system
+4. Make it feel modern, connected, and innovative
+5. Commit your changes
+
+Think big picture - how would a company like Notion or Airtable approach this feature?

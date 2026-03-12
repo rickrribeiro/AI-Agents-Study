@@ -1,0 +1,32 @@
+# /add-expense-feature
+
+## Purpose
+Generate the scaffolding for a new expense-related feature while respecting the project architecture.
+
+## Input
+Feature description.
+
+Example:
+`/add-expense-feature recurring expenses`
+
+## Claude Instructions
+
+1. Identify the required domain logic.
+2. Generate the following files if they do not exist:
+
+- `/features/<feature-name>/`
+- `/services/<feature-name>.service.ts`
+- `/tests/<feature-name>.test.ts`
+
+3. Ensure the implementation:
+- follows existing naming conventions
+- separates UI and business logic
+- includes validation rules
+- includes at least one unit test
+
+4. If similar functionality already exists, suggest extending it instead of duplicating logic.
+
+## Output
+- File structure
+- Initial implementation
+- Suggested tests

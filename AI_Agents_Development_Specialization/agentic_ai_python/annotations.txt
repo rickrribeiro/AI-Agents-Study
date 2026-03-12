@@ -179,3 +179,6 @@ When we need to modify our agent’s capabilities, we can:
 
 
 its a good practice crete two functions to register tools when creating the tool registry. Store the terminate tool but not register initially. It is registered later through register_terminate_tool() to control when the agent is allowed to end execution, preventing premature termination.
+
+
+to avoid more hallucination: dont ask for answers, ask for persectives. Ask for more than 1 possibility

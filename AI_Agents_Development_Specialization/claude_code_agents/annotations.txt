@@ -1,0 +1,146 @@
+AI Labor
+its really important to specify to the AI Labor to isolate the changes creating a new branch and specifying the naming rules
+
+Ask the AI Labor to compile, execute and run tests before so it minimize human efforts on broken codes
+
+prompt examples:
+- how to dont prompt:
+"in expense_list.tsx, add a function to sort the list of expenses by time. At the end of the function, it should update the state of the expenses list.
+
+- how to prompt as an AI Leader:
+"Look at the list of expenses, how could we make it incredibly bold, beautiful, and modern? Blow my mind with elegance, simplicity and beauty of your user interface design changes."
+
+- 1000x
+"the user interface isnt consistent, could you make everything match the style of the list of expenses?"
+"When i'm trying to prepare my small business taxes, i find it really hard to gather all of the relevant expenses. Create something amazing to solve that problem for me. surprise me with your creativity"
+
+
+Those prompts makes AI to think how to solve the problem, not only create the solution
+
+solve the problem more than one time and choose the best.
+AI Labor Development:
+- Implement 3-5 different solutions
+- Compare and evaluate all of them
+- Choose the best or combine elements
+
+Code quality:
+"Evaluate this code creating a table across a number of important dimentions"
+the expected result is a table like: functionality, error handling, code quality, flexibility, performance, documentation, security, maintanability, best practices, etc...
+
+You can also create the 3-5 different solutions and ask the AI to evaluate them
+
+
+
+Chat, Craft, Scale System:
+Chat:
+Its discussing the solution and design it with the AI.
+
+Craft:
+Craft the solution implementation. Not only the code, but how it will be architected and then generate the code
+
+Scale:
+Scale the solution, improve it, new features, etc...
+
+
+claude.md: context to claude code, like instructions you give to any new programmer in your organization. Always try to give as more context as possible
+ex:
+less context: an app for tracking expenses
+more context: an web app for tracking expenses made with NextJS using NextUI
+
+add roadmap & key context, design & style principles, processes
+
+- The CONTEXT Framework for Claude.md Design
+- Use this acronym to remember the key principles:
+- Clear and Concise Instructions
+- Operational Processes
+- Naming and Standards
+- Testing and Quality Gates
+- Examples and References
+- Xpectations and Boundaries
+- Tools and Dependencies
+
+Core Principles:
+1. Essential Information Only
+Claude.md should contain global information that applies to every task. Don't overwhelm it with project-specific details that only apply to certain features.
+
+2. Specificity Creates Better Targets
+Context narrows the target from broad instructions to precise outcomes. "Write solid code" is vague; "Follow SOLID design principles for all object-oriented code" is actionable.
+
+3. Process Over Micromanagement
+Define workflows and checks, not implementation details. Let Claude make architectural decisions within your guardrails.
+
+Best Practices Summary
+Do's:
+✅ Use clear, actionable language
+✅ Provide specific tools and frameworks
+✅ Define quality gates and testing requirements
+✅ Include workflow processes
+✅ Specify naming conventions
+✅ Reference established design principles
+
+Don'ts:
+❌ Include task-specific details that only apply sometimes
+❌ Write 1000-page documentation dumps
+❌ Use vague instructions like "write good code"
+❌ Forget to specify version control workflows
+❌ Micromanage implementation details
+❌ Include temporary or changing information
+
+
+Claude commands:
+While claude.md provides global context for every interaction, commands deliver targeted context and process for specific, repeatable tasks.
+Create reusable instructions passing arguments with placeholders for doing a specific action, ex: code review
+
+Core principles:
+1. Right Context at the Right Time
+2. Reusable Consistency
+3. Template-Driven Automation
+
+
+The TARGETED Framework for Command Design
+- Use this acronym to create effective commands:
+- Task-Specific Instructions
+- Arguments and Placeholders
+- Reusable Process Steps
+- Guided Examples and References
+- Explicit Output Requirements
+- Template-Based Naming
+- Error Handling and Edge Cases
+- Documentation and Context
+
+
+Commands management tips:
+Organization Strategies
+- By Function: plan-feature.md, impl-api.md, test-unit.md, deploy-prod.md, ...
+- By Domain: auth-login.md, user-profile.md, payment-process.md, order-create.md, ...
+- By Role: dev-review.md, qa-automation.md, ops-deploy.md, pm-requirements.md, ...
+
+
+Giving an example will make the AI to follow the pattern you want to
+example: write a poem following the style of the poem xxxx. So you can ask to read a code and write in the same style
+
+
+What Are Subagents?
+Subagents are lightweight instances of Claude Code running in a task via the Task Tool. When a subagent is running, you can actually see that the output says "Task(Performing task X)".
+
+The key benefits of subagents include:
+- Independent context windows: Each subagent maintains its own context, preventing information overflow
+- Parallel execution: Multiple subagents can work simultaneously on different aspects of your project
+- Specialized focus: Each subagent can be given a specific domain or task to concentrate on
+
+
+
+you need to limit the number of tokens you put into de model. Its inneficient and expensive to put the whole project.
+Always try to design with small number of files, small files and simple files
+project structure and file name is critical context for ai labor scalability
+
+Extended Thinking Levels
+Claude Code provides progressively deeper thinking modes triggered by specific phrases:
+- "think" - Basic extended thinking for straightforward problems
+- "think hard" - Deeper analysis for moderate complexity
+- "think harder" - Comprehensive evaluation for complex scenarios
+- "ultrathink" - Maximum thinking budget for highly complex problems
+
+ex: "Think hard about how to implement a"
+
+
