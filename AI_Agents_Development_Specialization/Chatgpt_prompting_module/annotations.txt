@@ -1,0 +1,29 @@
+An LLM (Large Language Model) is an AI system trained on massive amounts of text to understand and generate human-like language.
+
+An LLM is a model that generates text by predicting the next token in a sequence based on context.
+
+A prompt is the input or instruction given to an AI model that guides the response it generates.
+
+"From now on, when i ask a question, suggest a better version of my question and ask me if I would like to use it"
+
+the more specific you are, the more specific is the response
+
+Persona pattern: use "act as xxxxx" to make the llm to answer as it's a xxxxx.
+its not necessary a person, can be like "act as a linux terminal that has been hacked"
+
+prompt catalog: https://arxiv.org/abs/2302.11382
+
+
+modulo 1: 42 - 10 - 
+modulo 2: 87 - 50 - 16/03 e 18/03
+modulo 3: 31 - 40 - 18/03
+modulo 4: 61 - 20 - 20/03
+modulo 5: 57 - 50 - 23/03
+modulo 6: 50 - 70 - 27/03
+
+16
+18
+18
+20
+23
+27
