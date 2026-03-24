@@ -13,17 +13,110 @@ its not necessary a person, can be like "act as a linux terminal that has been h
 
 prompt catalog: https://arxiv.org/abs/2302.11382
 
+try to always summarize information to have clean and smalls prompts
 
-modulo 1: 42 - 10 - 
-modulo 2: 87 - 50 - 16/03 e 18/03
-modulo 3: 31 - 40 - 18/03
-modulo 4: 61 - 20 - 20/03
-modulo 5: 57 - 50 - 23/03
-modulo 6: 50 - 70 - 27/03
+you shouldnt think that a prompt is a question or a single statement, but a refined resume of a conversation. 
+Talk with the Ai to make a refined prompt
 
-16
-18
-18
-20
-23
-27
+Root prompts: its a first prompts with rules the AI should follow in the conversation
+
+
+
+#### Prompt Patterns
+
+## Question Refinement pattern
+"whenever ​I ask a question or you can give it ​some scope to this just for the next question or ​for the next three questions or whatever you want to do, ​you say something like whenever I ask a question, ​suggests a better question and ​ask me if I would like to use it instead"
+
+How to use:
+From now on, whenever I ask a question, suggest a better version of the question to use instead 
+(Optional) Prompt me if I would like to use the better version instead
+
+Tailored Examples:
+- Whenever I ask a question about dieting, suggest a better version of the question that emphasizes healthy eating habits and sound nutrition. Ask me for the first question to refine.
+
+- Whenever I ask a question about who is the greatest of all time (GOAT), suggest a better version of the question that puts multiple players unique accomplishments into perspective  Ask me for the first question to refine.
+
+
+## Cognitive Verifier pattern
+The LLMs can actually reason better if they ​break a problem down into a bunch of smaller problems
+
+ask the large language model to ​always take questions or problems and subdivide them into a series ​of individual questions or sub problems that could be useful in ​answering the overall question or in solving the overall problem
+
+How to use:
+
+When you are asked a question, follow these rules 
+Generate a number of additional questions that would help more accurately answer the question 
+Combine the answers to the individual questions to produce the final answer to the overall question
+
+Tailored Examples:
+
+- When you are asked to create a recipe, follow these rules. Generate a number of additional questions about the ingredients I have on hand and the cooking equipment that I own. Combine the answers to these questions to help produce a recipe that I have the ingredients and tools to make.
+
+- When you are asked to plan a trip, follow these rules. Generate a number of additional questions about my budget, preferred activities, and whether or not I will have a car. Combine the answers to these questions to better plan my itinerary. 
+
+
+## Audience Persona pattern
+To use this pattern, your prompt should make the following fundamental contextual statements:
+
+Explain X to me. 
+Assume that I am Persona Y.
+
+
+example:
+Explain large language models to me. Assume that I am Cristovão Colombo.
+
+
+
+## Flipped interaction Pattern
+We may not know what are ​all the steps to achieve that goal. ​What we'd really like to do is we'd have to have ​the large language model ask us questions. 
+this is incredibly helpful when ​you don't necessarily know everything that's needed, ​or if you want to be tested or ​quizzed on something anywhere ​where you don't want to be in the driver's seat.
+
+
+How to use:
+
+I would like you to ask me questions to achieve X 
+You should ask questions until condition Y is met or to achieve this goal (alternatively, forever) 
+(Optional) ask me the questions one at a time, two at a time, ask me the first question, etc.
+
+Examples:
+
+I would like you to ask me questions to help me create variations of my marketing materials.  You should ask questions until you have sufficient information about my current draft messages, audience, and goals. Ask me the first question.
+
+I would like you to ask me questions to help me diagnose a problem with my Internet. Ask me questions until you have enough information to identify the two most likely causes. Ask me one question at a time. Ask me the first question. 
+
+
+
+##### Few-shot
+Give the LLM examples of inputs and examples of output
+we're trying to give it some pattern that it can ​quickly and easily pick up on in order to understand how to solve the problem. 
+
+Can be a serie of steps like ~situation~ -> action -> think(problem) -> action -> think(problem) -> ...
+
+you should detail the rules for the action to have more assertive answers
+
+
+### Chain of thought prompting
+
+This is a technique used to help large language models, like ChatGPT, provide better answers by encouraging them to explain their reasoning step-by-step before giving a final answer.
+
+For example, if we want to find out how many miles four bike racers travel in two hours at an average speed of 30 miles per hour, we can break it down like this:
+1. Each racer travels 30 miles per hour for 2 hours, which is 30 x 2 = 60 miles.
+2. Since there are four racers, we multiply 60 miles by 4, giving us 240 miles in total.
+
+By explaining our reasoning step by step, we ensure that we understand the problem better and are more likely to arrive at the correct answer.
+
+
+### ReAct (Reasoning and Acting) prompting
+
+The idea behind this is that we want to ​teach essentially the large language model how to ​think through a process and ​understand steps where it needs to go and ​use some other tool to take some other action ​outside of it and get the result of ​that tool and bring it back in as ​some type of computation or ​result that it can then incorporate
+
+a method called React, which helps large language models (like ChatGPT) to think and solve problems more effectively. Just like a detective solving a mystery, these models need to gather information from different sources to answer questions accurately. 
+
+
+
+#### Use LLMs to grade other LLMs
+Use one model to evaluate the output of another model
+
+​act as a prompt critic. ​Perform an evaluation, give the output that ​I provide you a grade in terms of ​how well it matches the expectations ​of the prompt designer. ​I am going to give you examples of grading prompts.
+
+
