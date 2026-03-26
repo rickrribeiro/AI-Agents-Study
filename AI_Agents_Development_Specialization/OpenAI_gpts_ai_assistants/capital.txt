@@ -1,0 +1,105 @@
+CAPITAL Framework (Resumo)
+
+O CAPITAL framework é um modelo usado para customizar o estilo de comunicação de um GPT, ajustando como ele interage com o usuário.
+Ele define 7 dimensões principais que controlam o comportamento, tom e linguagem do modelo.
+
+A ideia central é:
+➡️ não é só o que o GPT responde, mas como ele responde.
+
+🔤 Componentes do CAPITAL
+C — Confidence (Confiança)
+
+Define o nível de certeza nas respostas.
+
+Assured: fala com autoridade e segurança
+→ ideal para: finanças, negócios, recomendações
+Measured: mais cauteloso, reconhece limitações
+→ ideal para: ciência, medicina, pesquisa
+
+💡 Insight: confiança alta aumenta credibilidade, mas pode ser perigosa em áreas sensíveis.
+
+A — Amicability (Amigabilidade)
+
+Define o tom emocional da comunicação.
+
+Friendly: caloroso, próximo, humano
+→ ideal para: atendimento, suporte, apps sociais
+Neutral: objetivo e impessoal
+→ ideal para: notícias, conteúdo informativo
+
+💡 Insight: muda a sensação da experiência (tipo filtro de imagem).
+
+P — Professionalism (Profissionalismo)
+
+Define o nível de formalidade.
+
+Formal: linguagem técnica e estruturada
+→ ideal para: jurídico, corporativo, documentos
+Casual: linguagem simples e conversacional
+→ ideal para: educação, chat, apps sociais
+
+💡 Insight: impacta diretamente acessibilidade vs precisão.
+
+I — Interactivity (Interatividade)
+
+Define o nível de participação do usuário na conversa.
+
+Engaging: incentiva diálogo, faz perguntas
+→ ideal para: coaching, ensino, exploração
+Informative: entrega informação direta
+→ ideal para: resumos, respostas rápidas
+
+💡 Insight: mais interatividade = mais contexto, mas também mais fricção.
+
+T — Transparency (Transparência)
+
+Define o quanto o GPT explica seu funcionamento.
+
+Open: explica raciocínio, fontes, limitações
+→ ideal para: saúde, educação, confiança alta
+Discreet: só entrega o resultado final
+→ ideal para: tarefas rápidas, sistemas transacionais
+
+💡 Insight: transparência aumenta confiança, mas pode deixar respostas mais longas.
+
+A — Adaptability (Adaptabilidade)
+
+Define se o GPT se ajusta ao usuário.
+
+Adaptive: adapta tom, estilo e contexto
+→ ideal para: assistentes pessoais, UX dinâmica
+Consistent: mantém padrão fixo
+→ ideal para: suporte, sistemas críticos
+
+💡 Insight: adaptação melhora experiência, consistência melhora previsibilidade.
+
+L — Lexicography (Lexicografia)
+
+Define o tipo de linguagem utilizada.
+
+Specialized: usa termos técnicos/jargões
+→ ideal para: especialistas (medicina, engenharia, direito)
+Universal: linguagem simples e acessível
+→ ideal para: público geral
+
+💡 Insight: trade-off entre precisão técnica e compreensão.
+
+🧠 Ideia Geral
+
+O framework funciona como um controle de estilo do GPT, combinando essas dimensões para diferentes contextos.
+
+Exemplo:
+
+Um GPT médico → Measured + Formal + Open + Specialized
+Um chatbot de suporte → Friendly + Casual + Engaging + Adaptive
+Um sistema de FAQ → Neutral + Informative + Discreet + Consistent
+🎯 Conclusão
+
+O CAPITAL framework permite:
+
+ajustar tom, clareza e comportamento
+melhorar experiência do usuário
+adaptar o GPT para diferentes contextos e objetivos
+
+👉 Em resumo:
+é como configurar uma câmera — você ajusta os parâmetros para obter a melhor “imagem” (resposta) possível dependendo da situação.

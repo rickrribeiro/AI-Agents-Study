@@ -1,0 +1,49 @@
+Fine-tuning: Training a model with specific data to improve performance on a particular task.
+
+RAG (Retrieval-Augmented Generation): The model retrieves external information and uses it to generate better answers.
+
+MCP (Model Context Protocol): A standard that lets models connect to tools, data, and systems to get context and take actions.
+
+Custom GPTs = custom versions of ChatGPT ​that combine instructions, extra knowledge, and combination of skills.
+
+Its always good to define a persona("atc as") for your custom gpt 
+
+build a benchmark to score the responses to measure your custom gpt. 
+When designing and testing a custom GPT to ensure it meets specific benchmarks, we're focusing on evaluating its performance under a range of scenarios and input variations to ensure its effectiveness, accuracy, and reliability. This involves creating a comprehensive suite of tests that encompass various types of tasks, user profiles, and input complexities, as well as assessing its outputs against a detailed rubric and analyzing conversational characteristics across multiple interactions.
+
+The testing should include variability in the test cases to mimic the real-world unpredictability of user interactions. To achieve this, we classify our test cases into diverse categories such as factual questions, reasoning tasks, creative tasks, and instruction-based challenges
+
+Custom GPT for generating test cases:
+​You're going to help the user generate test cases for their custom GPT. ​First, you will ask the user questions one at a time until you understand what their ​custom GPT is supposed to do. 
+​Once you have a reasonable understanding, progress to the next step. ​Second, you will read the provided document and generate four initial test ​cases for the user to consider based on a variety of dimensions. ​You will explain each test case. ​Each test case should be formatted.  ​Each test case should have a goal. ​Each one should explain what is being tested and why.  ​Each one of them should have a user prompt.
+
+
+The Goal is to Help the Human Solve the Problem, Not Provide the Answer
+
+If you need the exact information from a document ask: i would like to know xxxx. Provide direct quotes from the document, but dont do any discussion.
+
+
+If the there are multiple interpretations, ask the llm to provide them
+
+
+put a "contact" section in your custom gpts to direct user to the customer service if they need help
+
+
+​Generative AI always wants to try to solve the problem, ​and this leads to hallucination. ​We've all heard about hallucination. ​This is when it tries to ​come up with an answer that fits. ​It may look really convincing, ​but maybe it's not factually accurate. ​Often, the cause of ​hallucination is that the generative AI does not have ​the information that it needs in order to ​accurately solve the problem or answer or whatever it is. if we attempt to ​solve the problem without getting the information first, ​what we're going to do is either be at risk of ​hallucination or we're going to be ​at risk of just producing ​a poor answer that isn't exciting or isn't very good. 
+
+Use the flipped interaction pattern to ask the context from the user to answer correctly. Also to do user-customized experienced.
+
+we need to set as much bundaries as possible to limit what the custom gpt can do
+If the user asks for something the custom gpt doesnt know, ask it to tell the user to xxx(contact the support, ask again, say its not clear, etc...). If not, the probability of hallucination is higher
+
+if its not clear, its also possible to use the question refinement pattern to send a better question to the user to be more specific and clear
+
+if its ambiguous, maybe use the alternative approaches pattern to give a list of possibilities to the user.
+
+its possible to use the cognitive verifier pattern to break the user question in smaller questions to be more assertive
+
+if ​it's unclear what the answer is, you can provide related questions, but using the concepts and ​terms in the knowledge base.
+
+If using multiple data sources it may have conflicts you should tell how to solve. Maybe answer prioritizing the newer data source (ex two policies documents), tell all informations, 
+
+adversarial testing is like a safety check. Dont let someone put words in your organization mouth. Imagine you have a robot that answers questions for your organization. You want to make sure that this robot doesn’t accidentally say something inappropriate or misleading. Adversarial testing involves trying to trick the robot into saying or doing things it shouldn’t. This is especially important if the robot will be used by the public, as you want to protect your organization’s reputation.

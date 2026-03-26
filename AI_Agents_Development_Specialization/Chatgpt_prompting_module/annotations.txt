@@ -1,52 +1,82 @@
+# 📚 Anotações - LLM & Prompt Engineering
+
+## 📌 Sumário
+- [Definições](#definições)
+- [Conceitos Gerais](#conceitos-gerais)
+- [Prompt Patterns](#prompt-patterns)
+  - [Question Refinement pattern](#question-refinement-pattern)
+  - [Cognitive Verifier pattern](#cognitive-verifier-pattern)
+  - [Audience Persona pattern](#audience-persona-pattern)
+  - [Flipped interaction Pattern](#flipped-interaction-pattern)
+- [Técnicas](#técnicas)
+  - [Few-shot](#few-shot)
+  - [Chain of thought prompting](#chain-of-thought-prompting)
+  - [ReAct (Reasoning and Acting) prompting](#react-reasoning-and-acting-prompting)
+- [Outros Patterns](#outros-patterns)
+
+---
+
+## Definições
+
 An LLM (Large Language Model) is an AI system trained on massive amounts of text to understand and generate human-like language.
 
 An LLM is a model that generates text by predicting the next token in a sequence based on context.
 
 A prompt is the input or instruction given to an AI model that guides the response it generates.
 
+---
+
+## Conceitos Gerais
+
 "From now on, when i ask a question, suggest a better version of my question and ask me if I would like to use it"
 
 the more specific you are, the more specific is the response
 
-Persona pattern: use "act as xxxxx" to make the llm to answer as it's a xxxxx.
+Persona pattern: use "act as xxxxx" to make the llm to answer as it's a xxxxx.  
 its not necessary a person, can be like "act as a linux terminal that has been hacked"
 
-prompt catalog: https://arxiv.org/abs/2302.11382
+prompt catalog: https://arxiv.org/abs/2302.11382  
 Prompt patterns for coding: https://arxiv.org/abs/2303.07839
 
 try to always summarize information to have clean and smalls prompts
 
-you shouldnt think that a prompt is a question or a single statement, but a refined resume of a conversation. 
+you shouldnt think that a prompt is a question or a single statement, but a refined resume of a conversation.  
 Talk with the Ai to make a refined prompt
 
 Root prompts: its a first prompts with rules the AI should follow in the conversation
 
+---
 
+## Prompt Patterns
 
 #### Prompt Patterns
 
 ### Question Refinement pattern
+
 "whenever ​I ask a question or you can give it ​some scope to this just for the next question or ​for the next three questions or whatever you want to do, ​you say something like whenever I ask a question, ​suggests a better question and ​ask me if I would like to use it instead"
 
-How to use:
-From now on, whenever I ask a question, suggest a better version of the question to use instead 
-(Optional) Prompt me if I would like to use the better version instead
+How to use:  
+From now on, whenever I ask a question, suggest a better version of the question to use instead  
+(Optional) Prompt me if I would like to use the better version instead  
 
 Tailored Examples:
+
 - Whenever I ask a question about dieting, suggest a better version of the question that emphasizes healthy eating habits and sound nutrition. Ask me for the first question to refine.
 
 - Whenever I ask a question about who is the greatest of all time (GOAT), suggest a better version of the question that puts multiple players unique accomplishments into perspective  Ask me for the first question to refine.
 
+---
 
 ### Cognitive Verifier pattern
+
 The LLMs can actually reason better if they ​break a problem down into a bunch of smaller problems
 
 ask the large language model to ​always take questions or problems and subdivide them into a series ​of individual questions or sub problems that could be useful in ​answering the overall question or in solving the overall problem
 
 How to use:
 
-When you are asked a question, follow these rules 
-Generate a number of additional questions that would help more accurately answer the question 
+When you are asked a question, follow these rules  
+Generate a number of additional questions that would help more accurately answer the question  
 Combine the answers to the individual questions to produce the final answer to the overall question
 
 Tailored Examples:
@@ -55,28 +85,29 @@ Tailored Examples:
 
 - When you are asked to plan a trip, follow these rules. Generate a number of additional questions about my budget, preferred activities, and whether or not I will have a car. Combine the answers to these questions to better plan my itinerary. 
 
+---
 
 ### Audience Persona pattern
+
 To use this pattern, your prompt should make the following fundamental contextual statements:
 
-Explain X to me. 
-Assume that I am Persona Y.
+Explain X to me.  
+Assume that I am Persona Y.  
 
-
-example:
+example:  
 Explain large language models to me. Assume that I am Cristovão Colombo.
 
-
+---
 
 ### Flipped interaction Pattern
-We may not know what are ​all the steps to achieve that goal. ​What we'd really like to do is we'd have to have ​the large language model ask us questions. 
-this is incredibly helpful when ​you don't necessarily know everything that's needed, ​or if you want to be tested or ​quizzed on something anywhere ​where you don't want to be in the driver's seat.
 
+We may not know what are ​all the steps to achieve that goal. ​What we'd really like to do is we'd have to have ​the large language model ask us questions.  
+this is incredibly helpful when ​you don't necessarily know everything that's needed, ​or if you want to be tested or ​quizzed on something anywhere ​where you don't want to be in the driver's seat.  
 
 How to use:
 
-I would like you to ask me questions to achieve X 
-You should ask questions until condition Y is met or to achieve this goal (alternatively, forever) 
+I would like you to ask me questions to achieve X  
+You should ask questions until condition Y is met or to achieve this goal (alternatively, forever)  
 (Optional) ask me the questions one at a time, two at a time, ask me the first question, etc.
 
 Examples:
@@ -85,174 +116,171 @@ I would like you to ask me questions to help me create variations of my marketin
 
 I would like you to ask me questions to help me diagnose a problem with my Internet. Ask me questions until you have enough information to identify the two most likely causes. Ask me one question at a time. Ask me the first question. 
 
+---
 
+## Técnicas
 
 ##### Few-shot
-Give the LLM examples of inputs and examples of output
-we're trying to give it some pattern that it can ​quickly and easily pick up on in order to understand how to solve the problem. 
+
+Give the LLM examples of inputs and examples of output  
+we're trying to give it some pattern that it can ​quickly and easily pick up on in order to understand how to solve the problem.  
 
 Can be a serie of steps like ~situation~ -> action -> think(problem) -> action -> think(problem) -> ...
 
 you should detail the rules for the action to have more assertive answers
 
+---
 
 ### Chain of thought prompting
 
 This is a technique used to help large language models, like ChatGPT, provide better answers by encouraging them to explain their reasoning step-by-step before giving a final answer.
 
-For example, if we want to find out how many miles four bike racers travel in two hours at an average speed of 30 miles per hour, we can break it down like this:
-1. Each racer travels 30 miles per hour for 2 hours, which is 30 x 2 = 60 miles.
-2. Since there are four racers, we multiply 60 miles by 4, giving us 240 miles in total.
+For example, if we want to find out how many miles four bike racers travel in two hours at an average speed of 30 miles per hour, we can break it down like this:  
+1. Each racer travels 30 miles per hour for 2 hours, which is 30 x 2 = 60 miles.  
+2. Since there are four racers, we multiply 60 miles by 4, giving us 240 miles in total.  
 
 By explaining our reasoning step by step, we ensure that we understand the problem better and are more likely to arrive at the correct answer.
 
+---
 
 ### ReAct (Reasoning and Acting) prompting
 
-The idea behind this is that we want to ​teach essentially the large language model how to ​think through a process and ​understand steps where it needs to go and ​use some other tool to take some other action ​outside of it and get the result of ​that tool and bring it back in as ​some type of computation or ​result that it can then incorporate
+The idea behind this is that we want to ​teach essentially the large language model how to ​think through a process and ​understand steps where it needs to go and ​use some other tool to take some other action ​outside of it and get the result of ​that tool and bring it back in as ​some type of computation or ​result that it can then incorporate  
 
-a method called React, which helps large language models (like ChatGPT) to think and solve problems more effectively. Just like a detective solving a mystery, these models need to gather information from different sources to answer questions accurately. 
+a method called React, which helps large language models (like ChatGPT) to think and solve problems more effectively. Just like a detective solving a mystery, these models need to gather information from different sources to answer questions accurately.  
 
+---
 
+## Outros Patterns
 
 #### Use LLMs to grade other LLMs
-Use one model to evaluate the output of another model
+
+Use one model to evaluate the output of another model  
 
 ​act as a prompt critic. ​Perform an evaluation, give the output that ​I provide you a grade in terms of ​how well it matches the expectations ​of the prompt designer. ​I am going to give you examples of grading prompts.
 
+---
 
 ### Game Play Pattern
-To use this pattern, your prompt should make the following fundamental contextual statements:
-- Create a game for me around X OR we are going to play an X game
-- One or more fundamental rules of the game
 
-example:
-Create a cave exploration game  for me to discover a lost language. Describe where I am in the cave and what I can do. I should discover new words and symbols for the lost civilization in each area of the cave I visit. Each area should also have part of a story that uses the language. I should have to collect all the words and symbols to be able to understand the story. Tell me about the first area and then ask me what action to take. 
+To use this pattern, your prompt should make the following fundamental contextual statements:  
+- Create a game for me around X OR we are going to play an X game  
+- One or more fundamental rules of the game  
 
+example:  
+Create a cave exploration game  for me to discover a lost language. Describe where I am in the cave and what I can do. I should discover new words and symbols for the lost civilization in each area of the cave I visit. Each area should also have part of a story that uses the language. I should have to collect all the words and symbols to be able to understand the story. Tell me about the first area and then ask me what action to take.  
+
+---
 
 ### Template pattern
 
 The idea behind this pattern is we would like ​a specific template followed for our output, ​and we can describe that template to ​ChatGPT and then have it ​produce all of its output using that template.
 
-To use this pattern, your prompt should make the following fundamental contextual statements:
-- I am going to provide a template for your output 
-- X is my placeholder for content 
-- Try to fit the output into one or more of the placeholders that I list 
-- Please preserve the formatting and overall template that I provide 
-- This is the template: PATTERN with PLACEHOLDERS
+To use this pattern, your prompt should make the following fundamental contextual statements:  
+- I am going to provide a template for your output  
+- X is my placeholder for content  
+- Try to fit the output into one or more of the placeholders that I list  
+- Please preserve the formatting and overall template that I provide  
+- This is the template: PATTERN with PLACEHOLDERS  
 
-You will need to replace "X" with an appropriate placeholder, such as "CAPITALIZED WORDS" or "<PLACEHOLDER>". You will then need to specify a pattern to fill in, such as "Dear <FULL NAME>" or "NAME, TITLE, COMPANY".
-
+---
 
 ### Meta language creation pattern
+
 So I'm going to teach you a pattern where we can ​basically teach a large language model a new language and ​then communicate with the large language model in that new language or shorthand.
 
-How to use:
+How to use:  
 - When I say X, I mean Y (or would like you to do Y)
 
+---
 
 ### Recipe pattern
+
 We have a problem and we know only part of the solution. We use an LLM to fill in the missing steps and complete the process (like a recipe), based on the goal and the information we already have.
 
-How to use:
-- I would like to achieve X 
-- I know that I need to perform steps A,B,C 
-- Provide a complete sequence of steps for me 
-- Fill in any missing steps 
-- (Optional) Identify any unnecessary steps
+How to use:  
+- I would like to achieve X  
+- I know that I need to perform steps A,B,C  
+- Provide a complete sequence of steps for me  
+- Fill in any missing steps  
+- (Optional) Identify any unnecessary steps  
 
-example:
-- I would like to  purchase a house. I know that I need to perform steps make an offer and close on the house. Provide a complete sequence of steps for me. Fill in any missing steps.
-
-- I would like to drive to NYC from Nashville. I know that I want to go through Asheville, NC on the way and that I don't want to drive more than 300 miles per day. Provide a complete sequence of steps for me. Fill in any missing steps.
-
+---
 
 ### Alternative Approaches Pattern
 
 To brainstorm different ways to solve a problem. Imagine you have a puzzle to solve, and instead of trying to figure it out all by yourself, you invite a group of friends to share their ideas. Some friends might suggest great solutions, while others might come up with ideas that don’t quite fit. The key is that by sharing and discussing, you can find the best way to solve the puzzle together. 
 
-How to use:
-- If there are alternative ways to accomplish a task X that I give you, list the best alternate approaches 
-- (Optional) compare/contrast the pros and cons of each approach 
-- (Optional) include the original way that I asked 
-- (Optional) prompt me for which approach I would like to use
+How to use:  
+- If there are alternative ways to accomplish a task X that I give you, list the best alternate approaches  
+- (Optional) compare/contrast the pros and cons of each approach  
+- (Optional) include the original way that I asked  
+- (Optional) prompt me for which approach I would like to use  
 
-
+---
 
 ### Ask for Input pattern
+
 he idea behind this is we want to get ​the large language model to listen to ​the rules and then ask us ​for the input to apply the rules to.
 
-how to use:
-Ask me for input X
+how to use:  
+Ask me for input X  
 
-example:
-- whenever I ask you to write ​a prompt for me to accomplish a task, ​list what the task is, ​list the alternative approaches for creating the task, ​and then write a prompt for yourself for each approach
-
-- From now on, translate anything I write into a series of sounds and actions from a dog that represent the dogs reaction to what I write. Ask me for the first thing to translate. 
-
+---
 
 ### Outline Expansion Pattern
+
 ​There's always going to be a limit ​probably on the amount of information. ​We need a way to work with it in smaller pieces, ​but still be able to put all the pieces back together. 
 
-How to use:
-- Act as an outline expander. 
-- Generate a bullet point outline based on the input that I give you and then ask me for which bullet point you should expand on. 
-- Create a new outline for the bullet point that I select. 
-- At the end, ask me for what bullet point to expand next.   
-- Ask me for what to outline.
+How to use:  
+- Act as an outline expander.  
+- Generate a bullet point outline based on the input that I give you and then ask me for which bullet point you should expand on.  
+- Create a new outline for the bullet point that I select.  
+- At the end, ask me for what bullet point to expand next.  
+- Ask me for what to outline.  
 
-Example: 
-Act as an outline expander. Generate a bullet point outline based on the input that I give you and then ask me for which bullet point you should expand on. Each bullet can have at most 3-5 sub bullets. The bullets should be numbered using the pattern [A-Z].[i-v].[* through ****]. Create a new outline for the bullet point that I select.  At the end, ask me for what bullet point to expand next. Ask me for what to outline.
-
+---
 
 ### Menu Actions Pattern
-This concept is all about creating a set of predefined actions that you can use in conversations with a computer program, like a chatbot. Imagine you have a menu at a restaurant where you can choose different dishes. Similarly, in this context, you can create a menu of actions that you can easily call upon without having to repeat long instructions every time.
 
-how to use:
-- Whenever I type: X, you will do Y. 
-- (Optional, provide additional menu items) Whenever I type Z, you will do Q. 
-- At the end, you will ask me for the next action.
+This concept is all about creating a set of predefined actions that you can use in conversations with a computer program, like a chatbot.
 
-You will need to replace "X" with an appropriate pattern, such as "estimate <TASK DURATION>" or "add FOOD". You will then need to specify an action for the menu item to trigger, such as "add FOOD to my shopping list and update my estimated grocery bill".
+how to use:  
+- Whenever I type: X, you will do Y.  
+- (Optional, provide additional menu items) Whenever I type Z, you will do Q.  
+- At the end, you will ask me for the next action.  
 
-Example:
-Whenever I type: "add FOOD", you will add FOOD to my grocery list and update my estimated grocery bill. Whenever I type "remove FOOD", you will remove FOOD from my grocery list and update my estimated grocery bill. Whenever I type "save" you will list alternatives to my added FOOD to save money. At the end, you will ask me for the next action.  
-Ask me for the first action. 
-
+---
 
 ### Fact Check List Pattern
+
 because the output looks so realistic, ​so humans so convincing, ​we assume that it's true and when it's ​producing large volumes of tex.
 
-how to use:
-- Generate a set of facts that are contained in the output 
-- The set of facts should be inserted at POSITION in the output 
-- The set of facts should be the fundamental facts that could undermine the veracity of the output if any of them are incorrect
+how to use:  
+- Generate a set of facts that are contained in the output  
+- The set of facts should be inserted at POSITION in the output  
+- The set of facts should be the fundamental facts that could undermine the veracity of the output if any of them are incorrect  
 
-You will need to replace POSITION with an appropriate place to put the facts, such as "at the end of the output".
-
-Example:
-Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be the fundamental facts that could undermine the veracity of the output if any of them are incorrect.
-
-
+---
 
 ### Tail Generation Pattern
-When we're having a long conversation ​with a large language model, ​sometimes we'll run into the challenge that ​the large language model will ​forget the rules of the game. ​It'll forget what we're trying to accomplish. ​What is the task that we're working on? ​One of the things we need is a way to remind ​the large language model, what are we doing?
 
-how to use:
-At the end, repeat Y and/or ask me for X. 
+When we're having a long conversation ​with a large language model, ​sometimes we'll run into the challenge that ​the large language model will ​forget the rules of the game.
 
-example:
-Act as an outline expander. Generate a bullet point outline based on the input that I give you and then ask me for which bullet point you should expand on. Create a new outline for the bullet point that I select. At the end, ask me for what bullet point to expand next.   
-Ask me for what to outline.
+how to use:  
+At the end, repeat Y and/or ask me for X.  
 
+---
 
 ### Semantic filter pattern
+
 this is basically a filter that can take in text and ​remove information from it or only keep information that has ​certain meaning or has a certain qualities that we specify.
 
-How to use:
-Filter this information to remove X
+How to use:  
+Filter this information to remove X  
 
-example:
+Examples:
+
 - filter this information to remove all dates and ​rewrite the text as little as possible to fix issues caused by the date removals.
 
 - Filter this information to remove any personally identifying information or information that could potentially be used to re-identify the person. 
@@ -260,3 +288,60 @@ example:
 - Filter this email to remove redundant information.
 
 
+
+pattern: Question Refinement pattern
+when use: quando você quer melhorar a qualidade das perguntas automaticamente antes de obter respostas mais precisas
+
+pattern: Cognitive Verifier pattern
+when use: quando o problema é complexo e precisa ser quebrado em subproblemas para melhorar a precisão da resposta
+
+pattern: Audience Persona pattern
+when use: quando você quer adaptar a explicação para um tipo específico de pessoa ou nível de conhecimento
+
+pattern: Flipped interaction Pattern
+when use: quando você não sabe todas as informações necessárias e quer que a IA te faça perguntas para chegar na solução
+
+pattern: Few-shot
+when use: quando você quer ensinar um padrão específico para o modelo através de exemplos
+
+pattern: Chain of thought prompting
+when use: quando a tarefa exige raciocínio passo a passo para evitar erros
+
+pattern: ReAct (Reasoning and Acting) prompting
+when use: quando a solução exige raciocínio + uso de ferramentas externas ou múltiplas etapas interativas
+
+pattern: Use LLMs to grade other LLMs
+when use: quando você quer avaliar ou melhorar a qualidade de respostas usando outro modelo como crítico
+
+pattern: Game Play Pattern
+when use: quando você quer transformar uma tarefa em uma experiência interativa ou gamificada
+
+pattern: Template pattern
+when use: quando você precisa de respostas em um formato fixo e padronizado
+
+pattern: Meta language creation pattern
+when use: quando você quer criar atalhos ou uma linguagem customizada para interagir com a IA
+
+pattern: Recipe pattern
+when use: quando você tem parte de um processo e quer que a IA complete os passos faltantes
+
+pattern: Alternative Approaches Pattern
+when use: quando você quer explorar múltiplas soluções para um mesmo problema
+
+pattern: Ask for Input pattern
+when use: quando a IA precisa de informações do usuário antes de executar a tarefa corretamente
+
+pattern: Outline Expansion Pattern
+when use: quando você quer expandir um conteúdo grande de forma incremental e organizada
+
+pattern: Menu Actions Pattern
+when use: quando você quer criar comandos rápidos e reutilizáveis dentro da conversa
+
+pattern: Fact Check List Pattern
+when use: quando você quer validar a veracidade das respostas destacando fatos críticos
+
+pattern: Tail Generation Pattern
+when use: quando você quer manter contexto e garantir continuidade em conversas longas
+
+pattern: Semantic filter pattern
+when use: quando você precisa filtrar ou limpar informações com base em critérios específicos
