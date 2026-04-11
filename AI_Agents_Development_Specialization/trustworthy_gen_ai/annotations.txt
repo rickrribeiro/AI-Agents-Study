@@ -1,0 +1,192 @@
+always try to generate easy to check answers
+
+try to remove the risk of wrong answers
+
+We should approach AI with a focus on augmented, not artificial, intelligence. Augmented intelligence is about using AI to enhance human abilities rather than replace people
+
+Use AI as a skeleton for your mind
+
+The Achieve acronym summarizes this as:
+
+A: Aiding human coordination helping the teams to work together, plan things, etc...
+
+C: Cutting out tedious tasks
+
+H: Helping provide a safety net to dont commit mistakes
+
+IEV: Inspiring better problem solving and creativity
+
+E: Enabling great ideas to scale faster
+
+
+---------------
+
+Filtering information is one of the most promising applications of generative AI. When implemented thoughtfully, filtering allows AI systems to efficiently process large amounts of data and extract the most relevant parts for human users. This can augment human analysis and decision-making.
+
+
+- Filtering is a useful application for generative AI, but it should be applied to information the user already has access to, not to decide what information the user should have access to. There needs to be a separate process to determine appropriate access. It should not be used to determine what information can be released to the outside world, but to support human reasoning. 
+- When using generative AI for filtering, traceability back to the original information is crucial. This allows fact checking by including identifiers like line numbers, quotations, etc. 
+
+- Variations like summarization and explanation can also be appropriate if traceability is maintained. However, we need to avoid tasks where incorrect outputs could lead to harmful downstream consequences.
+
+- Filtering is a safe operation because the output is a subset of the input. This makes it easy to check that the filtered information is contained in the original.
+
+- Blindly prompting for summaries or citations without providing source information is unlikely to work well. The AI needs original content to filter and cite.
+
+- The key is using generative AI to augment human reasoning, not replace it. Tasks like medical decision making may be better supported by directing users to human experts rather than generating direct advice.
+
+###### Filtering Patterns:
+
+1. Simple Filter Pattern
+Filter the following X to include / remove Y
+-------------
+Information to filter
+
+Examples:
+"""
+Filter this list of movies to only include those released after 2010:
+
+-------------------
+
+Forrest Gump, 1994 The Godfather, 1972 Inception, 2010 Toy Story, 1995 The Matrix, 1999 Frozen, 2013
+
+"""
+
+2. Semantic Filter Pattern
+Filter the following information to remove X
+Explain what you are going to remove and why
+Then, provide the filtered information
+-------------
+Information to filter
+
+Examples:
+"""
+Filter this list of movies to remove movies that have leading characters using regional accents that aren't their normal accent. Explain what you are going to remove and why. Then provide the filtered information with the original movie IDs included:
+
+-------------------
+
+M1. Forrest Gump, 1994 
+M2. The Godfather, 1972 
+M3. Inception, 2010 
+M4. Toy Story, 1995 
+M5. The Matrix, 1999 
+M6. Frozen, 2013
+
+"""
+
+3. Summarize and Cite Pattern
+Summarize the key points from the following information. After each sentence in your summary, cite the IDs (or provide quotations) of the information that support it.
+-------------------
+
+Information to summarize
+
+Example:
+Summarize the key points from the following customer reviews. After each sentence in your summary, cite the review IDs that support it:
+-------------------
+R1. The food was delicious and the service was great. 5 stars!
+R2. Horrible experience. The staff was rude and the food was cold. 1 star.
+R3. Everything was pretty good but nothing special. 3 stars.
+R4. I go here all the time. Consistently good food and friendly waiters. Highly recommend!
+
+
+
+------------------------------------------
+
+Ideation using AI involves generating ideas that the human then responds to, reacts to, and builds upon. The human is still the key creator.
+
+When used appropriately, generative AI has immense potential as a tool for augmenting human creativity. The key is recognizing that the technology should assist people in ideation, not replace them. With the right mindset and approach, humans can direct generative models like Claude to provide novel perspectives that spark imaginations.
+
+-------------------------------------------
+Navigation is an effective way to use AI when dealing with sensitive information. Instead of generating sensitive details directly, Generative AI can guide users to  the information in an existing system. The goal is to take the user to the information rather than to potentially generate inaccurate information. 
+
+Prompt Patterns for Navigation
+- Allows accessing sensitive information without directly generating it, avoiding potential inaccuracies
+- If AI guides incorrectly, users can recognize the information is wrong or missing, limiting harm
+- Leverages and enhances existing validated data sources instead of creating new unverified outputs
+- Saves users time finding information themselves through complex apps/systems
+- Translates natural language questions into system navigation
+
+Navigation Patterns:
+1. Direct Navigation Pattern
+Tell me where I can find X. A description of the different locations where information can be found are below.
+
+------------- 
+
+Identifier for Location, Description of Information in Location
+
+Identifier for Location2, Description of Information in Location2
+
+...
+
+
+Examples:
+""" 
+
+Tell me where I can find information about my next appointment using the list of information locations below.
+
+-------------------
+
+Login Screen: This screen allows users to log in to the mobile healthcare app using their username and password. It may also have options to register a new account or reset a forgotten password.
+
+Home Screen: The home screen is the main screen of the app, which users can access after logging in. It may include:
+
+User profile information (e.g. name, photo, age, gender)
+
+Quick access to frequently used features (e.g. appointment scheduling, medication tracker, health tracker)
+
+Dashboard with charts and graphs to track health progress and goals
+
+Notifications for upcoming appointments or reminders for medication
+
+Appointment Scheduler: This screen allows users to schedule, modify, or cancel appointments with healthcare providers. Information on this screen may include:
+
+Calendar view of available dates and times
+
+List of healthcare providers with available time slots
+
+Confirmation of scheduled appointment with details (e.g. date, time, location, healthcare provider)
+
+"""
+
+2. Navigate Instead Pattern
+Whenever I ask a question about X, don't ever tell me the answer. Instead, tell me the location where I can find X. A description of the different locations where information can be found are below.
+
+------------- 
+
+Identifier for Location, Description of Information in Location
+
+Identifier for Location2, Description of Information in Location2
+
+...
+
+Examples:
+""" 
+
+Whenever I ask a question about X, don't ever tell me the answer. Instead, tell me the location where I can find X. A description of the different locations where information can be found are below.
+
+-------------------
+
+Login Screen: This screen allows users to log in to the mobile healthcare app using their username and password. It may also have options to register a new account or reset a forgotten password.
+
+Home Screen: The home screen is the main screen of the app, which users can access after logging in. It may include:
+
+User profile information (e.g. name, photo, age, gender)
+
+Quick access to frequently used features (e.g. appointment scheduling, medication tracker, health tracker)
+
+Dashboard with charts and graphs to track health progress and goals
+
+Notifications for upcoming appointments or reminders for medication
+
+Appointment Scheduler: This screen allows users to schedule, modify, or cancel appointments with healthcare providers. Information on this screen may include:
+
+Calendar view of available dates and times
+
+List of healthcare providers with available time slots
+
+Confirmation of scheduled appointment with details (e.g. date, time, location, healthcare provider)
+
+"""
+
+-----------------------------
+If you dont have expertise, be careful. You dont know if the answer is right

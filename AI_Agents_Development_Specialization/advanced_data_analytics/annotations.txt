@@ -1,0 +1,6 @@
+Actually the Chatgpt code interpreter is named  as "ChatGPT Advanced Data Analysis" and its not a separated tool anymore, its integrated with chatgpt.
+
+You can ask chatgpt to read files and create data visualizations
+
+Example prompt:
+Draw four visualizations for me that show me interesting things in this dataset. The visualization should show unexpected things based on higher education trends. Write 2-3 paragraphs describing the visualizations and what they show.
