@@ -190,3 +190,14 @@ Confirmation of scheduled appointment with details (e.g. date, time, location, h
 
 -----------------------------
 If you dont have expertise, be careful. You dont know if the answer is right
+
+---------------------------
+
+
+Its good to create tests for your agents. Tests asking them about informations you know.
+
+
+To work with large documents, its better to create an infromation index and then be more specific
+
+
+ Edit and correct any chat message that produces a bad output immediately and regenerate the output. Clean conversation histories are preferred to prevent introducing erroneous information that causes problems later.

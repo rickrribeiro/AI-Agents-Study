@@ -163,3 +163,12 @@ Execute each step individually, saving outputs in separate files to track progre
 At the start of each step, review the previous step’s output to ensure alignment and cohesion.
 Act as a conductor by guiding the AI to continue or adjust when it hits output limits or misses details.
 Finally, combine all individual pieces into a single cohesive document or file for the final product.
+
+
+
+
+
+
+
+----------
+To solve this, you create an outline — like a map or a guide — that shows how all the pieces fit together. This outline helps you remember what you’ve done and what comes next. You can zoom in to work on one small part or zoom out to see the big picture. It’s like having a roadmap that tells you where you are and where you’re going. By saving this outline as you go, you make sure you don’t lose track, even if you have to stop and come back later. This way, all the pieces connect smoothly, and the final project makes sense as a whole.
