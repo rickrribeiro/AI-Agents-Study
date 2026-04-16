@@ -4,3 +4,162 @@ You can ask chatgpt to read files and create data visualizations
 
 Example prompt:
 Draw four visualizations for me that show me interesting things in this dataset. The visualization should show unexpected things based on higher education trends. Write 2-3 paragraphs describing the visualizations and what they show.
+
+
+its good when:
+1. It's easy to check if the solution is correct and errors won't create new problems.
+2. A partial or flawed solution to the problem has value.
+3. The solution to the problem will support your creativity and thought.
+
+
+some use cases:
+process video and remove frames
+work with zip files
+
+
+Extract, transform, AI, Create
+
+IDEAS:
+Education
+Interactive Educational eBooks: Create ePub and PDF textbooks with embedded images, GIFs, and videos to enhance learning.
+
+Lesson Plans: Design Word documents or Excel spreadsheets with detailed lesson plans, schedules, and learning objectives.
+
+Student Performance Dashboards: Utilize Excel or CSV to track and visualize student performance, attendance, and participation.
+
+Online Learning Modules: Develop HTML-based interactive learning modules with embedded videos, images, and quizzes.
+
+Educational Videos: Produce educational movies or video lectures in subjects like history, science, or mathematics.
+
+Virtual Labs: Create interactive virtual labs in HTML format for science subjects, allowing students to conduct experiments online.
+
+Study Guides: Design PDF or Word study guides with key points, summaries, and practice questions for various subjects.
+
+Classroom Presentations: Create PowerPoint presentations for classroom lectures, enriched with images, GIFs, and videos.
+
+Educational Infographics: Design informative images or GIFs that summarize complex topics in an easy-to-understand visual format.
+
+Reading Lists: Compile text files with lists of recommended books, articles, and resources for further reading.
+
+Finance
+Budget Templates: Create Excel or CSV templates for personal or business budgeting, with built-in calculations.
+
+Investment Portfolios: Design Excel spreadsheets to track and analyze investment portfolios, including stocks, bonds, and mutual funds.
+
+Financial Reports: Produce PDF or Word reports summarizing financial performance, balance sheets, and income statements.
+
+Tax Preparation Guides: Compile PDF or Word guides detailing tax laws, regulations, and preparation instructions.
+
+Financial Education Videos: Create educational movies or GIFs explaining financial concepts like investing, saving, or retirement planning.
+
+Market Analysis Dashboards: Utilize Excel to visualize market trends, economic indicators, and competitor analysis.
+
+Loan Calculators: Design Excel spreadsheets with built-in calculators to determine loan payments, interest rates, and amortization schedules.
+
+Investor Presentations: Create PowerPoint presentations to communicate financial strategies, investment opportunities, and business plans.
+
+Economic Research Papers: Write and publish PDF or Word documents containing in-depth analysis of economic trends and policies.
+
+Banking Tutorials: Develop HTML-based tutorials with images and videos explaining banking services, online banking, and account management.
+
+Sales
+Sales Dashboards: Create Excel or CSV dashboards to track sales performance, targets, and key performance indicators (KPIs).
+
+Product Catalogs: Design PDF or Word catalogs showcasing products, specifications, images, and pricing information.
+
+Sales Training Manuals: Compile PDF or Word manuals with sales techniques, product knowledge, and customer engagement strategies.
+
+Customer Relationship Management (CRM) Templates: Utilize Excel to manage customer information, interactions, and sales pipelines.
+
+Sales Presentations: Create compelling PowerPoint presentations for pitching products or services to potential clients.
+
+Lead Generation Reports: Design Excel spreadsheets to organize and analyze leads, conversion rates, and marketing channels.
+
+Email Marketing Templates: Develop HTML-based email templates for sales promotions, product launches, and newsletters.
+
+Product Demonstration Videos: Produce movies or GIFs demonstrating product features, benefits, and usage instructions.
+
+Competitor Analysis Charts: Utilize Excel or images to visualize competitor positioning, market share, and product comparisons.
+
+Sales Scripts: Write text files with effective sales scripts, objection handling techniques, and closing strategies.
+
+Marketing
+Marketing Plans: Create Word or PDF documents outlining marketing strategies, target audiences, channels, and budgets.
+
+Customer Surveys: Design Excel or CSV templates to collect and analyze customer feedback, preferences, and satisfaction levels.
+
+Social Media Calendars: Utilize Excel to plan and schedule social media posts, campaigns, and engagement metrics.
+
+Content Marketing Guides: Compile ePub or PDF guides with best practices for content creation, SEO, and audience engagement.
+
+Ad Campaign Reports: Produce PowerPoint presentations summarizing ad campaign performance, ROI, and key insights.
+
+Brand Guidelines: Create PDF or Word documents detailing brand identity, logo usage, color schemes, and messaging guidelines.
+
+Email Newsletters: Design HTML-based newsletters with embedded images, videos, and links to promote products or content.
+
+Product Photography: Capture high-quality images for product listings, advertising, and promotional materials.
+
+Marketing Infographics: Design informative GIFs or images that visualize marketing data, trends, and insights.
+
+Viral Marketing Videos: Produce engaging movies or GIFs for viral marketing campaigns, product launches, or brand storytelling.
+
+Leadership
+Leadership Development Workbooks: Create Word or PDF workbooks for leadership training, self-assessment, and goal setting.
+
+Team Building Activities Guide: Compile ePub or PDF guides with team-building exercises, icebreakers, and collaboration techniques.
+
+Performance Review Templates: Design Excel or Word templates for conducting employee performance reviews and feedback sessions.
+
+Leadership Webinars: Produce PowerPoint presentations for online leadership webinars, workshops, and seminars.
+
+Motivational Videos: Create inspiring movies or GIFs featuring leadership quotes, success stories, and motivational speeches.
+
+Organizational Charts: Utilize Excel or images to visualize organizational structure, reporting relationships, and team hierarchies.
+
+Leadership Blogs: Write HTML-based blogs sharing leadership insights, experiences, and best practices.
+
+Succession Planning Documents: Create PDF or Word documents for succession planning, talent development, and leadership pipelines.
+
+Conflict Resolution Guides: Compile ePub or PDF guides with techniques for conflict resolution, mediation, and problem-solving.
+
+Vision and Mission Statements: Design text files or images articulating the organization's vision, mission, and core values.
+
+Management
+Project Management Templates: Create Excel or CSV templates for project planning, tracking, and resource allocation.
+
+Employee Handbooks: Design PDF or Word handbooks with company policies, procedures, and workplace guidelines.
+
+Inventory Management Spreadsheets: Utilize Excel to manage inventory levels, ordering, and supply chain logistics.
+
+Business Plans: Compile Word or PDF documents outlining business goals, strategies, market analysis, and financial projections.
+
+Training Videos: Produce movies or GIFs for employee training, onboarding, and skill development.
+
+Meeting Agendas: Create Word or text files with meeting agendas, objectives, and discussion points.
+
+Process Flowcharts: Design images or PowerPoint slides to visualize business processes, workflows, and operational procedures.
+
+Time Management Tools: Develop Excel spreadsheets with time tracking, task prioritization, and productivity analysis.
+
+Compliance Manuals: Write PDF or Word manuals detailing regulatory compliance, legal requirements, and best practices.
+
+Corporate Presentations: Create PowerPoint presentations for board meetings, investor relations, and corporate communication.
+
+
+
+
+AI Planning and Problem Breakdown
+
+Break down large tasks into smaller, manageable steps to avoid overwhelming the AI tool and to work within output limits.
+Create separate plans for different goals (e.g., blog post vs. social media posts) to handle each part individually.
+Refining and Editing Plans
+
+Start with a generic plan and then refine it based on the actual content to make it more specific and actionable.
+Edit the plan by removing unnecessary steps before execution to streamline the process.
+Executing Plans Step-by-Step
+
+Execute each step individually, saving outputs in separate files to track progress and avoid losing work.
+At the start of each step, review the previous step’s output to ensure alignment and cohesion.
+Act as a conductor by guiding the AI to continue or adjust when it hits output limits or misses details.
+Finally, combine all individual pieces into a single cohesive document or file for the final product.

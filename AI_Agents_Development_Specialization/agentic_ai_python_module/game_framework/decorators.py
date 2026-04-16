@@ -76,7 +76,7 @@ def get_tool_metadata(func, tool_name=None, description=None, parameters_overrid
         # Build the arguments schema dynamically
         args_schema = {
             "type": "object",
-            "properties": {},
+            "properties": {},  
             "required": []
         }
         for param_name, param in signature.parameters.items():
